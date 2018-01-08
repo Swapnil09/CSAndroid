@@ -22,7 +22,6 @@ public class WordDictionary {
     public WordDictionary(InputStream wordListStream) throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(wordListStream));
         lettersToWorld = new HashMap<String,HashSet<String>>();
-        result = new HashSet<String>();
         random = new Random();
         String line = null;
         while((line = in.readLine()) != null) {
@@ -51,6 +50,7 @@ public class WordDictionary {
 
     public String getNewLettersSequence(){
         String word = new String();
+        result = new HashSet<String>();
         ArrayList<String> sequences = new ArrayList(lettersToWorld.keySet());
         int index = random.nextInt(sequences.size());
         word = sequences.get(index);
